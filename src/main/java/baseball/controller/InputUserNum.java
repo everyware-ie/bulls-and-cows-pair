@@ -10,7 +10,6 @@ public class InputUserNum {
             Integer tmp = str.charAt(i) - '0';
             userNum[i]=tmp;
         }
-        System.out.println(userNum);
         return userNum;
     }
 }
