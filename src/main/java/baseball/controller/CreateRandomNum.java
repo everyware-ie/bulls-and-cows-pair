@@ -6,21 +6,21 @@ import java.util.List;
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class CreateRandomNum {
-
-    public static List<Integer> createNum() {
+        public static int[] createNum() {
         int i = 0;
-        List<Integer> randomNum = new ArrayList<>();
+        int[] randomNum = new int[3];
 
-        while (i < 3) {
-            if (randomNum.isEmpty()) {
-                randomNum.add(pickNumberInRange(1, 9));
-                i++;
+        loop : while (i < randomNum.length) { //자바 스터디에서 공유한 알짜배기 스킬
+            if (i == 0) {
+                randomNum[i++] = pickNumberInRange(1, 9);
             } else {
                 int tmp = pickNumberInRange(1, 9);
-                if (!randomNum.contains(tmp)) {
-                    randomNum.add(tmp);
-                    i++;
+                for(int j = 0; j < i; j++){
+                    if (randomNum[j] == tmp) {
+                        continue loop;
+                    }
                 }
+                randomNum[i++] = tmp;
             }
         }
 
